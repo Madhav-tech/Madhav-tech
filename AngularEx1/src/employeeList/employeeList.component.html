@@ -1,0 +1,28 @@
+<table border="1">
+    <thead>
+        <tr>
+            <th>Img</th>
+            <th>Details</th>
+
+        </tr>
+    </thead>
+    <tr *ngFor="let employee of employees">
+        <td><img [src]="employee.avatar" alt="Image"/></td>
+        <td>
+        <ul>
+            <li><b>Id:</b>{{employee.id}}</li>
+            <li><b>First Name:</b>{{employee.first_name}}</li>
+            <li><b>Last Name:</b>{{employee.last_name}}</li>
+            <li><b>Email:</b>{{employee.email}}</li>
+        </ul>
+        </td>
+     </tr>
+</table>
+
+<!--
+    <ul *ngIf="selectedEmployee">
+<li><img [src]="selectedEmployee.avatar"/></li>
+<li>{{selectedEmployee.last_name}}</li>
+<li>{{selectedEmployee.email}}</li>
+</ul>
+-->
