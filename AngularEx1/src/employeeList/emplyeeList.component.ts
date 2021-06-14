@@ -47,4 +47,17 @@ export class EmployeeList{
             last_name:"Ramos",
             avatar:"https://reqres.in/img/faces/6-image.jpg"
         }]
+        isTrue:boolean = false;
+
+        show(): any{
+            console.log('Inside show function');
+            if(this.isTrue)
+                this.isTrue=false
+            else
+                this.isTrue = true;
+
+          }
+        
 }
+
+
