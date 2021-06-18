@@ -8,8 +8,13 @@ import { EmployeeList } from 'src/employeeList/emplyeeList.component';
 })
 export class AppComponent {
   title = 'AngularEx1';
- 
+  employee:any={};
 
+  notifyEmployee($event:any){
+    //console.log('$event')
 
+   // console.log($event)
+    this.employee=$event;
+  } 
   
 }

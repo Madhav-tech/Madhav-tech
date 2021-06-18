@@ -1,0 +1,23 @@
+<div class="container register-form ">
+    <form novalidate [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)" >
+        <div class="note p-4">
+            <h3>Create User Name And password</h3>
+        </div>
+
+        <div class="form-content">
+           
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control" placeholder="Your User  Name *"  formControlName="userName" value=""/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control" placeholder="Your Password *"  formControlName="password" value=""/>
+                    </div>
+                </div>
+          
+            <button type="submit" class="btnSubmit">Submit</button>
+        </div>
+    </form>
+</div>

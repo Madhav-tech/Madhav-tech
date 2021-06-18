@@ -1,0 +1,51 @@
+<div class="fluid-container" style="background-color:rgb(54, 51, 51); padding: 2px;height:100vh;">
+    <div class="card m-5 rounded" style="background-color: rgb(245, 245, 245); box-shadow: 4px 4px 8px 8px #f72626;
+    border-radius: 0px">
+        <form novalidate (ngSubmit)="save(loginForm)" #loginForm="ngForm">
+            <div class=" text-dark">
+                <div class="bg-info  mb-5 p-1">
+                    <div class="panel-title p-2"><h3>Sign In</h3></div>
+
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-group-text">User Name</label>
+                    <input class="form-control" type="text" name="userName" required minlength="3"
+                        [(ngModel)]="login.username" #userNameVar="ngModel" /></div>
+
+                <div> <span *ngIf="userNameVar.touched" class="text-danger">
+                        <span *ngIf="userNameVar.errors?.required">
+                            Please enter your username.
+                        </span>
+                        <span *ngIf="userNameVar.errors?.minlength">
+                            User name must be longer than 3 characters.
+                        </span>
+                    </span>
+                </div>
+
+                <div class="input-group mt-4">
+                    <label class="input-group-text">Password</label>
+                    <input class="form-control" type="password" name="password" required
+                        minlength="5" [(ngModel)]="login.password" #pwdVar="ngModel" />
+                    </div>
+                <div>
+                    <span *ngIf="pwdVar.touched" class="text-danger">
+                        <span *ngIf="pwdVar.errors?.required">
+                            Please enter your password.
+                        </span>
+                        <span *ngIf="pwdVar.errors?.minlength">
+                            Password must be greater than 3 characters.
+                        </span>
+
+                    </span>
+                </div>
+                <div class="mt-2" *ngIf="isError" style="color: red;font-weight: bolder; font-size: 18px; text-align: center;">{{error}}</div>
+                <div class="input-group mt-5 col justify-content-center">
+                    <div class="m-2"><input class="btn btn-warning mb-3" type="reset" /></div>
+                    <div class="m-2"><input class="btn btn-primary mb-3" type="submit" [disabled]="!loginForm.valid" /></div>
+                    <div class="m-2"><a class="btn btn-info mb-3" [routerLink]="['register']">Create User</a></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

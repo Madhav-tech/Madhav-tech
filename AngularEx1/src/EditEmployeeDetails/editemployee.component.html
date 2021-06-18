@@ -1,0 +1,35 @@
+<div class="fluid-container pt-5" style="background-color: bisque; height: 100vh;">
+    <div class="card bg-light mx-auto  p-3" style="width: 25rem;">
+        <div class="card-body">
+            <h5 class="card-title">Edit Employee Details</h5>
+            <form novalidate [formGroup]="employeeForm" (ngSubmit)="onSubmit(employeeForm)">
+                <table class="table table-info">
+                
+                    <header class=""> <img [src]="employee.avatar" alt="Image" /></header>
+                    <tbody>
+                        <tr>
+                            <td>ID</td>
+                            <td> <input class="form-control" type="text" formControlName="id" readonly /> </td>
+                        </tr>
+                        <tr>
+                            <td><label>First Name</label></td>
+                            <td><input  class="form-control" type="text" formControlName="first_name" /></td>
+                        </tr>
+                        <tr>
+                            <td> <label>Last Name</label></td>
+                            <td><input  class="form-control" type="text" formControlName="last_name" /></td>
+                        </tr>
+                        <tr>
+                            <td> <label>Email: </label></td>
+                            <td><input  class="form-control " type="email" formControlName="email"></td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <button class="btn btn-success" type="submit">Update</button>
+            </form>
+
+
+        </div>
+    </div>
+
+</div>

@@ -1,30 +1,52 @@
-<input type="button" value="Show/Hide" id="get-users" (click)="show()">
-<table border="1" *ngIf = "isTrue">
-    <thead>
-        <tr>
-            <th>Img</th>
-            <th>Details</th>
+<div class="fluid-container text-dark row align-items-start"
+    style="background-color: rgb(233, 227, 240);padding-top: 0%; height: 100vh">
+    <div class="jumbotrone col mx-4 my-4 rounded" style="background-color: rgb(213, 172, 255); height:100vh;">
+        <form>
+            <div class="form-group mt-3">
+                <input class="form-control" type="text" name="name" [(ngModel)]="name" placeholder="Search by Name" />
+            </div>
+            <ol>
+                <!-- *All we want is a filter that takes an array as input and returns
+                     *a subset of that array based on the term we supply. In Angular,
+                     * this way of transforming data to some other form is implemented with Pipes 
+                -->
 
-        </tr>
-    </thead>
-    <tr *ngFor="let employee of employees">
-        <td><img [src]="employee.avatar" alt="Image"/></td>
-        <td>
-        <ul>
-            <li><b>Id:</b>{{employee.id}}</li>
-            <li><b>First Name:</b>{{employee.first_name}}</li>
-            <li><b>Last Name:</b>{{employee.last_name}}</li>
-            <li><b>Email:</b>{{employee.email}}</li>
-        </ul>
-        </td>
-     </tr>
-   
-</table>
+                
+                      
+                <div class="card mb-1" style="width: 14rem;" *ngFor="let emp of employees | appFilter: name">
+                    <!-- <img [src]="emp.avatar" class="card-img-top" alt="..." height="100px" > -->
+                    <div class="card-body mb-0">
+                      <strong class="card-title">{{emp.first_name}} {{emp.last_name}}</strong>
+                      <ul *ngIf="emp">
+                        <li>Id:{{emp.id}}</li>
+                        <li>Email:{{emp.email}}</li>
+                    </ul>
+                    </div>
+                  </div>
 
-<!--
-    <ul *ngIf="selectedEmployee">
-<li><img [src]="selectedEmployee.avatar"/></li>
-<li>{{selectedEmployee.last_name}}</li>
-<li>{{selectedEmployee.email}}</li>
-</ul>
--->
+            </ol>
+        </form>
+    </div>
+    <div class="jumbotrone col  mx-4 my-4 rounded" style=" background-color: antiquewhite;height: 100vh;">
+        <div class="mb-3">
+            <input class="btn btn-primary mt-2" type="button" value="Show/Hide" id="get-users" (click)="show()">
+        </div>
+        <div *ngIf="isTrue" style="float: left;">
+            <table class="table table-primary table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let employee of employees">
+                    <td>{{employee.first_name}} {{employee.last_name}}</td>
+                    <td>
+                        <button class="btn btn-info" (click)="test(employee.id)">click here for details</button>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

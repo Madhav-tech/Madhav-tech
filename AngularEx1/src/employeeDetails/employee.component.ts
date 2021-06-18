@@ -1,16 +1,39 @@
-import{Component} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Employee } from 'src/EmployeeServices/employee';
+import { EmployeeService } from 'src/EmployeeServices/employee.service';
 
 
 @Component({
-    templateUrl:'employee.component.html',
-    selector:'employee_detail'
+    templateUrl: 'employee.component.html',
+    selector: 'employee_detail'
 })
 
-export class EmployeeDetail{
-    employee:any = [
-                    {id:1001,name:'ramesh',age:19},
-                    {id:1002,name:'umesh',age:21},
-                    {id:1003,name:'mahesh',age:22},
-                    {id:1004,name:'suresh',age:19}
-                ]
-}  
+export class EmployeeDetail implements OnInit {
+    employee!:Employee;
+     id:any;
+     sub:any;
+    constructor(private Activatedroute: ActivatedRoute,
+        private router: Router,
+        private empService: EmployeeService) { }
+        
+    ngOnInit():void{
+        this.sub = this.Activatedroute.paramMap.subscribe(params =>{
+            //console.log(params);
+            this.id = params.get('id');
+            let employees = this.empService.getemployees();
+           
+            const selectedEmployee = employees.filter((item:any)=>item.id==this.id);
+            this.employee = selectedEmployee[0];
+           //console.log(this.employee);
+        });
+    
+    }
+    delete():any{
+        this.empService.deleteEmployee(this.employee.id);
+        this.router.navigate(['employeelist']);
+    }
+
+   
+}
+
