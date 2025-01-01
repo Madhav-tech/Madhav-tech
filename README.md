@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @Madhav Kumar
 - 👀 I’m interested in Full stack Development
-- 🌱 I’m currently learning java full stack
-- 💞️ I’m looking to collaborate on projects related to the FSE
+- 🌱 I’m currently PHP and JAVA based technology
+- 💞️ I’m looking to collaborate on any projects
 - 📫 Contact me - madhavkumar660@gmail.com
 
 <!---
