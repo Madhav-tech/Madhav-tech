@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Madhav Kumar
 - 👀 I’m interested in Full stack Development
-- 🌱 I’m currently PHP and JAVA based technology
+- 🌱 I’m currently working with PHP and JAVA based technology
 - 💞️ I’m looking to collaborate on any projects
 - 📫 Contact me - madhavkumar660@gmail.com
 
